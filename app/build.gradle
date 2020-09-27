@@ -1,0 +1,47 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.huawei.agconnect' //In file header
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.example.mlkitshow"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // 1.2 Import the base SDK.
+    implementation 'com.huawei.hms:ml-computer-vision-ocr:2.0.1.300'
+    // Import the Chinese and English model package.
+    implementation 'com.huawei.hms:ml-computer-vision-ocr-cn-model:2.0.1.300'
+
+    // Face detection SDK.
+    implementation 'com.huawei.hms:ml-computer-vision-face:1.0.4.300'
+
+    implementation 'com.huawei.hms:ml-computer-vision-cloud:2.0.1.300'
+
+    //scan kit
+    implementation "com.huawei.hms:scan:1.1.3.301"
+
+
+}
